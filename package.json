@@ -1,0 +1,43 @@
+{
+  "name": "quickteller-sva-node",
+  "version": "1.0.0",
+  "description": "A Nodejs Library for Quickteller SVA API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/",
+    "start:dev": "nodemon src/app.js --exec babel-node --presets @babel/preset-env",
+    "clean": "rm -rf dist",
+    "start": "npm run build && node dist/app.js",
+    "build": "npm run clean && babel src --out-dir dist",
+    "lint": "eslint --ignore-path .eslintignore src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkterungwa16/quickteller-sva-node.git"
+  },
+  "keywords": [
+    "Quickteller",
+    "SVA"
+  ],
+  "author": "Terungwa Kombol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkterungwa16/quickteller-sva-node/issues"
+  },
+  "homepage": "https://github.com/rkterungwa16/quickteller-sva-node#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}

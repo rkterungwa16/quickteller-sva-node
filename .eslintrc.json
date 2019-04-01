@@ -1,0 +1,51 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "linebreak-style": 0,
+    "one-var": 0,
+    "one-var-declaration-per-line": 0,
+    "new-cap": 0,
+    "consistent-return": 0,
+    "no-param-reassign": 0,
+    "comma-dangle": 0,
+    "eol-last": "off",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "quotes": [2, "single"],
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "operator-linebreak": "off",
+    "semi": [
+      2,
+      "never"
+    ],
+    "func-names": ["error", "never"],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireReturn": true,
+        "requireReturnType": true,
+        "requireParamDescription": false,
+        "requireReturnDescription": true
+      }
+    ],
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": true,
+          "ClassDeclaration": true
+        }
+      }
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+      }
+    ]
+  }
+}
