@@ -1,5 +1,7 @@
-import http from 'http'
 import https from 'https'
+import crypto from 'crypto'
+import nonce from 'nonce'
+
 
 /**
  * Make requests
@@ -7,8 +9,9 @@ import https from 'https'
 class HttpClient {
   /**
    * @param {Object} apiCredentials - Quickteller API credentials
-   * @param {string} apiCredentials.apiKey - Quickteller API key
+   * @param {string} apiCredentials.clientId - Quickteller API client Id
    * @param {string} apiCredentials.apiSecret - Quickteller API secret
+   * @param {string} apiCredentials.terminalId - Quickteller App terminal id
    * @param {Object} options - Additional options
    * @param {string} options.protocol - request protocol
    * @param {string} options.hostname - quickteller SVA api base url
@@ -20,9 +23,9 @@ class HttpClient {
     this.apiCredentials = apiCredentials
     this.options = options
     this.headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.apiCredentials.apiSecret}`
+      'Content-Type': 'application/json'
     }
+    this.generateRequestHeaders = this.generateRequestHeaders.bind(this)
   }
 
   /**
@@ -34,7 +37,8 @@ class HttpClient {
         protocol: this.options.protocol,
         hostname: this.options.hostname,
         method: this.options.method.toUpperCase(),
-        path: this.options.path
+        path: this.options.path,
+        headers: this.generateRequestHeaders()
       }, (res) => {
         const status = res.statusCode
         if (status === 200 || status === 201) {
@@ -55,7 +59,7 @@ class HttpClient {
           const parsed = JSON.parse(err)
           const quicktellerSvaError = new Error()
           quicktellerSvaError.statusCode = status
-          quicktellerSvaError.message = parsed.message
+          quicktellerSvaError.message = parsed.errors[0].message
           return reject(quicktellerSvaError)
         })
       })
@@ -67,6 +71,40 @@ class HttpClient {
       }
       req.end()
     })
+  }
+
+  /**
+   * @return {object} request header
+   */
+  generateRequestHeaders () {
+    const {
+      method,
+      protocol,
+      path,
+      hostname
+    } = this.options
+    const {
+      clientId,
+      apiSecret
+    } = this.apiCredentials
+    const Authorization = `InterswitchAuth ${Buffer.from(this.apiCredentials.clientId).toString('base64')}`
+    const Nonce = nonce()()
+    const Timestamp = Math.floor(Date.now() / 1000)
+    const SignatureMethod = 'SHA1'
+    const terminalID = this.apiCredentials.terminalId
+    const percentEncodeUrl = encodeURIComponent(`${protocol}//${hostname}${path}`)
+    const signatureContent = `${method}&${percentEncodeUrl}&${Timestamp}&${Nonce}&${clientId}&${apiSecret}`
+    const Signature = crypto.createHash('sha1').update(signatureContent).digest('base64')
+
+    const headers = Object.assign(this.headers, {
+      Signature,
+      Authorization,
+      Nonce,
+      Timestamp,
+      SignatureMethod,
+      terminalID
+    })
+    return headers
   }
 }
 

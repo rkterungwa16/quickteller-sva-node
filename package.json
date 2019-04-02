@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/",
-    "start:dev": "nodemon src/app.js --exec babel-node --presets @babel/preset-env",
+    "example": "babel-node examples/getBillers.js",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",
@@ -38,6 +38,8 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "nonce": "^1.0.4",
     "request": "^2.88.0"
   }
 }
