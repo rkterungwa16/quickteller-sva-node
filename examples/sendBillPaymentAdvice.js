@@ -9,7 +9,7 @@ const quickTellerSva = new QuickTellerSva(
 )
 
 quickTellerSva
-  .BillersResoure
+  .BillersResource
   .sendBillPaymentAdvice({
     TerminalId: '3ERT0001',
     paymentCode: '10403',

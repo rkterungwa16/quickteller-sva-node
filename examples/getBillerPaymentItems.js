@@ -9,7 +9,7 @@ const quickTellerSva = new QuickTellerSva(
 )
 
 quickTellerSva
-  .BillersResoure
+  .BillersResource
   .getBillerPaymentItems(303)
   .then((response) => {
     console.log('response', response)

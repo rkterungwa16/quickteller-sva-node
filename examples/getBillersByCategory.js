@@ -9,7 +9,7 @@ const quickTellerSva = new QuickTellerSva(
 )
 
 quickTellerSva
-  .BillersResoure
+  .BillersResource
   .getBillersByCategory(25)
   .then((response) => {
     console.log('response', response)
