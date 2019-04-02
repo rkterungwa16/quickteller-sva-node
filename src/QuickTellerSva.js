@@ -1,4 +1,5 @@
 import BillersResource from './BillersResource'
+import BillerCategoriesResource from './BillerCategoriesResource'
 /**
  * QuickTellerSva
  */
@@ -11,6 +12,7 @@ class QuickTellerSva {
    */
   constructor (apiCredentials) {
     this.BillersResoure = new BillersResource(apiCredentials)
+    this.BillerCategoriesResource = new BillerCategoriesResource(apiCredentials)
   }
 }
 

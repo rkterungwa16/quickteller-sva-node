@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/",
-    "example": "babel-node examples/getBillers.js",
+    "example": "babel-node examples/getBillerCategories.js",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",
