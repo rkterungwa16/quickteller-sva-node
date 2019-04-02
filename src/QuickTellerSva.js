@@ -1,4 +1,4 @@
-import BillersResource from './BillersResource'
+import BillerResource from './BillerResource'
 import BillerCategoriesResource from './BillerCategoriesResource'
 /**
  * QuickTellerSva
@@ -11,7 +11,7 @@ class QuickTellerSva {
    * @param {string} apiCredentials.terminalId application terminal id
    */
   constructor (apiCredentials) {
-    this.BillersResoure = new BillersResource(apiCredentials)
+    this.BillersResoure = new BillerResource(apiCredentials)
     this.BillerCategoriesResource = new BillerCategoriesResource(apiCredentials)
   }
 }

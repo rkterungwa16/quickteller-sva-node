@@ -67,7 +67,7 @@ class HttpClient {
         reject(e)
       })
       if (this.options.requestPayload) {
-        req.write(this.options.requestPayload)
+        req.write(JSON.stringify(this.options.requestPayload))
       }
       req.end()
     })
