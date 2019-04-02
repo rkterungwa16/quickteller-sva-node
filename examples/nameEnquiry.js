@@ -12,8 +12,11 @@ const quickTellerSva = new QuickTellerSva(
 )
 
 quickTellerSva
-  .BillersResource
-  .getBillers()
+  .BanksResource
+  .nameEnquiry({
+    bankCode: '058',
+    accountId: '0014261063'
+  })
   .then((response) => {
     console.log('response', response)
   })

@@ -18,6 +18,7 @@ class HttpClient {
    * @param {string} options.path quickteller SVA api resource path
    * @param {string} options.method request method
    * @param {object} options.requestPayload payload for requests that are not GET
+   * @param {object} options.headers additional headers to existing headers
    */
   constructor (apiCredentials, options) {
     this.apiCredentials = apiCredentials
@@ -81,7 +82,8 @@ class HttpClient {
       method,
       protocol,
       path,
-      hostname
+      hostname,
+      headers
     } = this.options
     const {
       clientId,
@@ -96,7 +98,17 @@ class HttpClient {
     const signatureContent = `${method}&${percentEncodeUrl}&${Timestamp}&${Nonce}&${clientId}&${apiSecret}`
     const Signature = crypto.createHash('sha1').update(signatureContent).digest('base64')
 
-    const headers = Object.assign(this.headers, {
+    if (headers) {
+      return Object.assign(this.headers, headers, {
+        Signature,
+        Authorization,
+        Nonce,
+        Timestamp,
+        SignatureMethod,
+        terminalID
+      })
+    }
+    return Object.assign(this.headers, {
       Signature,
       Authorization,
       Nonce,
@@ -104,7 +116,6 @@ class HttpClient {
       SignatureMethod,
       terminalID
     })
-    return headers
   }
 }
 

@@ -1,10 +1,13 @@
+import dotenv from 'dotenv'
 import QuickTellerSva from '../src/QuickTellerSva'
+
+dotenv.config()
 
 const quickTellerSva = new QuickTellerSva(
   {
-    apiSecret: 'NM5KgYhD5HU4gaZ06QVgOHT5PzwC1WtSqlsTz4Rye28=',
-    clientId: 'IKIA102249A8D9725133C68C74B11DE859C920F5C2CF',
-    terminalId: '3ERT0001'
+    apiSecret: process.env.API_SECRET,
+    clientId: process.env.CLIENT_ID,
+    terminalId: process.env.TERMINAL_ID
   }
 )
 
