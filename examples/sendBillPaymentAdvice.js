@@ -14,13 +14,13 @@ const quickTellerSva = new QuickTellerSva(
 quickTellerSva
   .BillersResource
   .sendBillPaymentAdvice({
-    TerminalId: '3ERT0001',
+    TerminalId: process.env.TERMINAL_ID,
     paymentCode: '10403',
     customerId: '0000000001',
     customerMobile: '2348056731576',
     customerEmail: 'iswtester2@yahoo.com',
     amount: '360000',
-    requestReference: '1194000023'
+    requestReference: '14131194000023'
   })
   .then((response) => {
     console.log('response', response)

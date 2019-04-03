@@ -48,7 +48,7 @@ class BanksResource {
    */
   nameEnquiry (bankDetails) {
     const method = 'GET'
-    const path = '/api/v2/quickteller/configuration/fundstransferbanks'
+    const path = '/api/v1/nameenquiry/banks/accounts/names'
     return new Promise((resolve, reject) => {
       new HttpClient({
         clientId: this.clientId,

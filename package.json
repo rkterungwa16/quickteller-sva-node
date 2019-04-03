@@ -1,11 +1,11 @@
 {
   "name": "quickteller-sva-node",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Nodejs Library for Quickteller SVA API",
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha tests/",
-    "example": "babel-node examples/getBillers.js",
+    "example": "babel-node examples/getBanks.js",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",
