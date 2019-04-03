@@ -12,8 +12,8 @@ const quickTellerSva = new QuickTellerSva(
 )
 
 quickTellerSva
-  .BillersResource
-  .sendBillPaymentAdvice({
+  .FundsResource
+  .fundsTransfer({
     mac: '9f4e4f53c57be63e1f08d8f07a7bc1a9461e4a7d5304043daa1ef54bd727b6cde148f4fbfc5e2ad8c4a60f78dfa76304de671fbeb70657b1628f14b6b6baa5e1',
     beneficiary: {
       lastname: 'Anari',

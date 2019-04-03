@@ -43,7 +43,8 @@ class BillerResource {
 
   /**
    * Retrieve billers based on the supplied search criteria
-   * @param {number} categoryId category id
+   * @param {number} categoryId An ID of the category to be returned.
+   * Please use a valid value returned from Get Categories API
    * @return {Promise} return billers by category
    */
   getBillersByCategory (categoryId) {
@@ -67,7 +68,7 @@ class BillerResource {
 
   /**
    * Retrieve billers based on the supplied search criteria
-   * @param {number} billerId category id
+   * @param {number} billerId Unique per biller. Returned in GetBillers response
    * @return {Promise} return billers by category
    */
   getBillerPaymentItems (billerId) {
