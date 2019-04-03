@@ -5,10 +5,10 @@ import HttpClient from './HttpClient'
  */
 class TransactionResource {
   /**
-   * @param {object} apiCredentials
-   * @param {string} apiCredentials.apiSecret application secret
-   * @param {string} apiCredentials.clientId application client Id
-   * @param {string} apiCredentials.terminalId application terminal id
+   * @param {Object} apiCredentials
+   * @param {String} apiCredentials.apiSecret application secret
+   * @param {String} apiCredentials.clientId application client Id
+   * @param {String} apiCredentials.terminalId application terminal id
    */
   constructor (apiCredentials) {
     this.apiSecret = apiCredentials.apiSecret
@@ -20,10 +20,10 @@ class TransactionResource {
 
   /**
    * Retrieve the status of a transaction
-   * @param {string} requestReferencevalue The request reference passed in the
+   * @param {String} requestReferencevalue The request reference passed in the
    * 'SendBillPaymentAdvice' method or the transfer code
    * passed in the 'DoTransfer' method
-   * @return {Promise} return  biller categories
+   * @return {Promise} return  transaction information
    */
   queryTransaction (requestReferencevalue) {
     const method = 'GET'
@@ -46,16 +46,16 @@ class TransactionResource {
 
   /**
    * Quickteller Payment Inquiry
-   * @param {object} requestPayload - request payload
-   * @param {string} requestPayload.paymentCode - The Payment Code that identifies
+   * @param {Object} requestPayload - request payload
+   * @param {String} requestPayload.paymentCode - The Payment Code that identifies
    * the biller. Please see Get Biller response GetBillerPaymentItems call
-   * @param {string} requestPayload.customerId - Customer ID e.g. smart card number
+   * @param {String} requestPayload.customerId - Customer ID e.g. smart card number
    * meter number
-   * @param {string} [requestPayload.customerMobile] - Customer's Mobile Number
-   * @param {string} [requestPayload.customerEmail] - Customer's Email
-   * @param {amount} [requestPayload.amount] - Amount
+   * @param {String} [requestPayload.customerMobile] - Customer's Mobile Number
+   * @param {String} [requestPayload.customerEmail] - Customer's Email
+   * @param {Number} [requestPayload.amount] - Amount
    * be sent in lower denomination
-   * @param {string} requestPayload.pageFlowValues - This is required
+   * @param {String} requestPayload.pageFlowValues - This is required
    * when you are sending a funds transfer trasaction. e.
    * BankId:16|DestinationAccountNumber:0221149201|
    * DestinationAccountType:10|Amount:60000|ReciepientName:GBOLAHAN MUSBAU SUBAIR
@@ -64,6 +64,40 @@ class TransactionResource {
   paymentEnquiry (requestPayload) {
     const method = 'POST'
     const path = '/api/v2/quickteller/transactions/inquirys'
+    return new Promise((resolve, reject) => {
+      new HttpClient({
+        clientId: this.clientId,
+        apiSecret: this.apiSecret,
+        terminalId: this.terminalId
+      }, {
+        protocol: this.protocol,
+        hostname: this.hostname,
+        path,
+        method,
+        requestPayload
+      }).sendRequest()
+        .then(response => resolve(response))
+        .catch(err => reject(err))
+    })
+  }
+
+  /**
+   * Perform Quickteller Payment Transaction
+   * @param {Object} requestPayload - request payload
+   * @param {String} requestPayload.pinData - Encrypted PIN Block
+   * @param {String} requestPayload.secureData - Other Transaction sensitve
+   * data e.g. Card, CVV, Exp Date
+   * @param {String} [requestPayload.msisdn] - Customer Mobile phone
+   * @param {String} requestPayload.transactionRef - Transaction reference
+   * returned during Bill Payment inquiry call
+   * @param {Number} requestPayload.amount - Transaction amount in minor denomination
+   * be sent in lower denomination
+   * @param {String} requestPayload.cardBin - The first 11 number of the Card Number
+   * @return {Promise} return payment information
+   */
+  sendPaymentTransaction (requestPayload) {
+    const method = 'POST'
+    const path = '/api/v2/quickteller/transactions'
     return new Promise((resolve, reject) => {
       new HttpClient({
         clientId: this.clientId,

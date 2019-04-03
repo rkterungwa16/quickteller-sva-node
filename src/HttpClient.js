@@ -9,16 +9,16 @@ import nonce from 'nonce'
 class HttpClient {
   /**
    * @param {Object} apiCredentials - Quickteller API credentials
-   * @param {string} apiCredentials.clientId - Quickteller API client Id
-   * @param {string} apiCredentials.apiSecret - Quickteller API secret
-   * @param {string} apiCredentials.terminalId - Quickteller App terminal id
+   * @param {String} apiCredentials.clientId - Quickteller API client Id
+   * @param {String} apiCredentials.apiSecret - Quickteller API secret
+   * @param {String} apiCredentials.terminalId - Quickteller App terminal id
    * @param {Object} options - Additional options
-   * @param {string} options.protocol - request protocol
-   * @param {string} options.hostname - quickteller SVA api base url
-   * @param {string} options.path quickteller SVA api resource path
-   * @param {string} options.method request method
-   * @param {object} options.requestPayload payload for requests that are not GET
-   * @param {object} options.headers additional headers to existing headers
+   * @param {String} options.protocol - request protocol
+   * @param {String} options.hostname - quickteller SVA api base url
+   * @param {String} options.path quickteller SVA api resource path
+   * @param {String} options.method request method
+   * @param {Object} options.requestPayload payload for requests that are not GET
+   * @param {Object} options.headers additional headers to existing headers
    */
   constructor (apiCredentials, options) {
     this.apiCredentials = apiCredentials
@@ -75,7 +75,7 @@ class HttpClient {
   }
 
   /**
-   * @return {object} request header
+   * @return {Object} request header
    */
   generateRequestHeaders () {
     const {

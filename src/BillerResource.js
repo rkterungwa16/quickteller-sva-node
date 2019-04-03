@@ -5,7 +5,7 @@ import HttpClient from './HttpClient'
  */
 class BillerResource {
   /**
-   * @param {object} apiCredentials
+   * @param {Object} apiCredentials
    * @param {string} apiCredentials.apiSecret application secret
    * @param {string} apiCredentials.clientId application client Id
    * @param {string} apiCredentials.terminalId application terminal id
@@ -43,7 +43,7 @@ class BillerResource {
 
   /**
    * Retrieve billers based on the supplied search criteria
-   * @param {number} categoryId An ID of the category to be returned.
+   * @param {Number} categoryId An ID of the category to be returned.
    * Please use a valid value returned from Get Categories API
    * @return {Promise} return billers by category
    */
@@ -68,7 +68,7 @@ class BillerResource {
 
   /**
    * Retrieve billers based on the supplied search criteria
-   * @param {number} billerId Unique per biller. Returned in GetBillers response
+   * @param {Number} billerId Unique per biller. Returned in GetBillers response
    * @return {Promise} return billers by category
    */
   getBillerPaymentItems (billerId) {
@@ -92,16 +92,16 @@ class BillerResource {
 
   /**
    * Notify the biller of the payment
-   * @param {object} requestPayload - request payload
-   * @param {string} requestPayload.TerminalId - Terminal ID assigned by Interswitch
-   * @param {string} requestPayload.paymentCode - Unique payment code retrieved from
+   * @param {Object} requestPayload - request payload
+   * @param {String} requestPayload.TerminalId - Terminal ID assigned by Interswitch
+   * @param {String} requestPayload.paymentCode - Unique payment code retrieved from
    * GetBillerPaymentItems call
-   * @param {string} requestPayload.customerId - Customer’s Unique Identifier
-   * @param {string} [requestPayload.customerMobile] - Customer’s Mobile Number
-   * @param {string} [requestPayload.customerEmail] - Customer's Email
-   * @param {amount} requestPayload.amount - Amount Paid by customer. Amount should
+   * @param {String} requestPayload.customerId - Customer’s Unique Identifier
+   * @param {String} [requestPayload.customerMobile] - Customer’s Mobile Number
+   * @param {String} [requestPayload.customerEmail] - Customer's Email
+   * @param {Number} requestPayload.amount - Amount Paid by customer. Amount should
    * be sent in lower denomination
-   * @param {requestReference} requestPayload.requestReference - Unique requestReference
+   * @param {String} requestPayload.requestReference - Unique requestReference
    * generated on Client’s system and sent in DoTransfer request. 4 digit
    * requestreference prefix will be provided by Interswitch.
    * @return {Promise} return payment information

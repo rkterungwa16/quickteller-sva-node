@@ -3,15 +3,17 @@ import BillerCategoriesResource from './BillerCategoriesResource'
 import BanksResource from './BanksResource'
 import FundsResource from './FundsResource'
 import TransactionResource from './TransactionResource'
+import CustomerResource from './CustomerResource'
+
 /**
  * QuickTellerSva
  */
 class QuickTellerSva {
   /**
-   * @param {object} apiCredentials
-   * @param {string} apiCredentials.apiSecret application secret
-   * @param {string} apiCredentials.clientId application client id
-   * @param {string} apiCredentials.terminalId application terminal id
+   * @param {Object} apiCredentials
+   * @param {String} apiCredentials.apiSecret application secret
+   * @param {String} apiCredentials.clientId application client id
+   * @param {String} apiCredentials.terminalId application terminal id
    */
   constructor (apiCredentials) {
     this.BillersResource = new BillerResource(apiCredentials)
@@ -19,6 +21,7 @@ class QuickTellerSva {
     this.BanksResource = new BanksResource(apiCredentials)
     this.FundsResource = new FundsResource(apiCredentials)
     this.TransactionResource = new TransactionResource(apiCredentials)
+    this.CustomerResource = new CustomerResource(apiCredentials)
   }
 }
 

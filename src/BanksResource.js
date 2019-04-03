@@ -41,9 +41,9 @@ class BanksResource {
   }
 
   /**
-   * @param {object} bankDetails customer's bank information
-   * @param {string} bankDetails.bankCode customer's bank code
-   * @param {string} bankDetails.accountId customer's account id
+   * @param {Object} bankDetails customer's bank information
+   * @param {String} bankDetails.bankCode customer's bank code
+   * @param {String} bankDetails.accountId customer's account id
    * @return {Promise} return banks
    */
   nameEnquiry (bankDetails) {
