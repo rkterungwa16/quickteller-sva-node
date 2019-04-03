@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import QuickTellerSva from '../src/QuickTellerSva'
+import QuickTellerSva from '../src'
 
 dotenv.config()
 
