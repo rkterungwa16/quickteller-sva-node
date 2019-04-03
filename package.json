@@ -9,8 +9,7 @@
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",
-    "lint": "eslint --ignore-path .eslintignore src/",
-    "prepublish": "npm run build"
+    "lint": "eslint --ignore-path .eslintignore src/"
   },
   "repository": {
     "type": "git",
