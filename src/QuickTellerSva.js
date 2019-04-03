@@ -1,6 +1,7 @@
 import BillerResource from './BillerResource'
 import BillerCategoriesResource from './BillerCategoriesResource'
 import BanksResource from './BanksResource'
+import FundsResource from './FundsResource'
 /**
  * QuickTellerSva
  */
@@ -15,6 +16,7 @@ class QuickTellerSva {
     this.BillersResource = new BillerResource(apiCredentials)
     this.BillerCategoriesResource = new BillerCategoriesResource(apiCredentials)
     this.BanksResource = new BanksResource(apiCredentials)
+    this.FundsResource = new FundsResource(apiCredentials)
   }
 }
 

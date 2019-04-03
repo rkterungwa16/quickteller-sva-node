@@ -19,6 +19,7 @@ class BillerCategoriesResource {
   }
 
   /**
+   * Retrieve all the biller category types
    * @return {Promise} return  biller categories
    */
   getBillerCategories () {

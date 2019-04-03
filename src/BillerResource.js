@@ -3,7 +3,7 @@ import HttpClient from './HttpClient'
 /**
  * Billers resource
  */
-class BillersResource {
+class BillerResource {
   /**
    * @param {object} apiCredentials
    * @param {string} apiCredentials.apiSecret application secret
@@ -19,6 +19,7 @@ class BillersResource {
   }
 
   /**
+   * Retrieve billers based on the supplied search criteria
    * @return {Promise} return billers
    */
   getBillers () {
@@ -41,6 +42,7 @@ class BillersResource {
   }
 
   /**
+   * Retrieve billers based on the supplied search criteria
    * @param {number} categoryId category id
    * @return {Promise} return billers by category
    */
@@ -64,6 +66,7 @@ class BillersResource {
   }
 
   /**
+   * Retrieve billers based on the supplied search criteria
    * @param {number} billerId category id
    * @return {Promise} return billers by category
    */
@@ -88,16 +91,16 @@ class BillersResource {
 
   /**
    * Notify the biller of the payment
-   * @param {object} requestPayload request payload
-   * @param {string} requestPayload.TerminalId Terminal ID assigned by Interswitch
-   * @param {string} requestPayload.paymentCode Unique payment code retrieved from
+   * @param {object} requestPayload - request payload
+   * @param {string} requestPayload.TerminalId - Terminal ID assigned by Interswitch
+   * @param {string} requestPayload.paymentCode - Unique payment code retrieved from
    * GetBillerPaymentItems call
-   * @param {string} requestPayload.customerId Customer’s Unique Identifier
-   * @param {string} requestPayload.customerMobile Customer’s Mobile Number
-   * @param {string} requestPayload.customerEmail Customer's Email
-   * @param {amount} requestPayload.amount Amount Paid by customer. Amount should
+   * @param {string} requestPayload.customerId - Customer’s Unique Identifier
+   * @param {string} [requestPayload.customerMobile] - Customer’s Mobile Number
+   * @param {string} [requestPayload.customerEmail] - Customer's Email
+   * @param {amount} requestPayload.amount - Amount Paid by customer. Amount should
    * be sent in lower denomination
-   * @param {requestReference} requestPayload.requestReference Unique requestReference
+   * @param {requestReference} requestPayload.requestReference - Unique requestReference
    * generated on Client’s system and sent in DoTransfer request. 4 digit
    * requestreference prefix will be provided by Interswitch.
    * @return {Promise} return payment information
@@ -123,4 +126,4 @@ class BillersResource {
   }
 }
 
-export default BillersResource
+export default BillerResource
