@@ -11,9 +11,10 @@ import CustomerResource from './CustomerResource'
 class QuickTellerSva {
   /**
    * @param {Object} apiCredentials
-   * @param {String} apiCredentials.apiSecret application secret
-   * @param {String} apiCredentials.clientId application client id
-   * @param {String} apiCredentials.terminalId application terminal id
+   * @param {String} apiCredentials.apiSecret - application secret
+   * @param {String} apiCredentials.clientId - application client id
+   * @param {String} apiCredentials.terminalId - application terminal id
+   * @param {String} apiCredentials.environment - application environment
    */
   constructor (apiCredentials) {
     this.BillersResource = new BillerResource(apiCredentials)

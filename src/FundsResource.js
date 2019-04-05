@@ -9,12 +9,15 @@ class FundsResource {
    * @param {String} apiCredentials.apiSecret application secret
    * @param {String} apiCredentials.clientId application client Id
    * @param {String} apiCredentials.terminalId application terminal id
+   * @param {String} apiCredentials.environment - Application environment
    */
   constructor (apiCredentials) {
     this.apiSecret = apiCredentials.apiSecret
     this.clientId = apiCredentials.clientId
     this.terminalId = apiCredentials.terminalId
-    this.hostname = 'sandbox.interswitchng.com'
+    this.hostname = `${
+      apiCredentials.environment === 'production' ? 'saturn' : 'sandbox'
+    }.interswitchng.com`
     this.protocol = 'https:'
   }
 
