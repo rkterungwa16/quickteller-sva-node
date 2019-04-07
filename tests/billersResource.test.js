@@ -51,7 +51,7 @@ describe('Billers Resources', () => {
 
   describe('Biller Payment Items', () => {
     nock('https://sandbox.interswitchng.com/api/v2', { allowUnmocked: true })
-      .get('/api/v2/quickteller/billers/104/paymentitems')
+      .get('/quickteller/billers/104/paymentitems')
       .reply(200, {
         paymentitems: [{
           categoryid: '2',
@@ -84,7 +84,7 @@ describe('Billers Resources', () => {
 
   describe('Send Payment Bill Advice', () => {
     nock('https://sandbox.interswitchng.com/api/v2', { allowUnmocked: true })
-      .post('/api/v2/quickteller/payments/advices',
+      .post('/quickteller/payments/advices',
         {
           TerminalId: process.env.TERMINAL_ID,
           paymentCode: '10403',

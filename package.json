@@ -4,12 +4,13 @@
   "description": "A Nodejs Library for Quickteller SVA API",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --require @babel/register tests/",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive --require @babel/register tests/ --exit",
     "example": "babel-node examples/getBanks.js",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",
     "lint": "eslint --ignore-path .eslintignore src/",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -36,11 +37,13 @@
     "@babel/register": "^7.4.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "mocha": "^6.0.2",
-    "nock": "^10.0.6"
+    "nock": "^10.0.6",
+    "nyc": "^13.3.0"
   },
   "dependencies": {
     "dotenv": "^7.0.0",

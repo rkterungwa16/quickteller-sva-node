@@ -2,7 +2,7 @@ import HttpClient from './HttpClient'
 import Resource from './Resource'
 
 /**
- * Handle Transaction resource actions
+ * Handle Customer resource actions
  */
 class CustomerResource extends Resource {
   /**
