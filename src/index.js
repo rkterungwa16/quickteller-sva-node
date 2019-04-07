@@ -15,6 +15,7 @@ class QuickTellerSva {
    * @param {String} apiCredentials.clientId - application client id
    * @param {String} apiCredentials.terminalId - application terminal id
    * @param {String} apiCredentials.environment - application environment
+   * @param {String} [apiCredentials.hostname] - web server host name
    */
   constructor (apiCredentials) {
     this.BillersResource = new BillerResource(apiCredentials)

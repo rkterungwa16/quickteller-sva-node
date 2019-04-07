@@ -10,14 +10,15 @@ class TransactionResource {
    * @param {String} apiCredentials.clientId application client Id
    * @param {String} apiCredentials.terminalId application terminal id
    * @param {String} apiCredentials.environment - Application environment
+   * @param {String} apiCredentials.hostname - web server host name
    */
   constructor (apiCredentials) {
     this.apiSecret = apiCredentials.apiSecret
     this.clientId = apiCredentials.clientId
     this.terminalId = apiCredentials.terminalId
-    this.hostname = `${
+    this.hostname = !apiCredentials.hostname ? `${
       apiCredentials.environment === 'production' ? 'saturn' : 'sandbox'
-    }.interswitchng.com`
+    }.interswitchng.com` : apiCredentials.hostname
     this.protocol = 'https:'
   }
 

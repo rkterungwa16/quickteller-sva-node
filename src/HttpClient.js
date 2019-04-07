@@ -14,6 +14,7 @@ class HttpClient {
    * @param {String} apiCredentials.terminalId - Quickteller App terminal id
    * @param {Object} options - Additional options
    * @param {String} options.protocol - request protocol
+   * @param {Object} [options.https] - node https library
    * @param {String} options.hostname - quickteller SVA api base url
    * @param {String} options.path quickteller SVA api resource path
    * @param {String} options.method request method
@@ -22,6 +23,7 @@ class HttpClient {
    */
   constructor (apiCredentials, options) {
     this.apiCredentials = apiCredentials
+    this.https = options.https || https
     this.options = options
     this.headers = {
       'Content-Type': 'application/json'
@@ -34,7 +36,7 @@ class HttpClient {
    */
   sendRequest () {
     return new Promise((resolve, reject) => {
-      const req = https.request({
+      const req = this.https.request({
         protocol: this.options.protocol,
         hostname: this.options.hostname,
         method: this.options.method.toUpperCase(),
