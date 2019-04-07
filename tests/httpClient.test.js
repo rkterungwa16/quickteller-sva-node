@@ -7,19 +7,6 @@ import options from './optionsFixtures'
 
 const { expect } = chai
 
-const fakeHttp = {
-  request () {
-    return {
-      on (event, listner) {
-        return listner
-      },
-      end () {
-        return true
-      }
-    }
-  }
-}
-
 describe('Http Client object', () => {
   describe('Http Client generate header', () => {
     it('Should return header', () => {
