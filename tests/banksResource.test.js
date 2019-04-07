@@ -34,7 +34,7 @@ describe('Bank Resources', () => {
     nock('https://sandbox.interswitchng.com/api/v2', { allowUnmocked: true })
       .get('/nameenquiry/banks/accounts/names')
       .reply(200, {
-        accountName: 'Nnamdi Olakunle'
+        accountName: 'EVANS  ERHOBAGA-AGOFURE'
       })
 
     it('Should validate account number', () => {
@@ -46,7 +46,7 @@ describe('Bank Resources', () => {
           accountId: '0014261063'
         })
         .then((response) => {
-          expect(response.accountName).to.equal('Nnamdi Olakunle')
+          expect(response.accountName).to.equal('EVANS  ERHOBAGA-AGOFURE')
         })
     })
   })

@@ -17,7 +17,7 @@ describe('Http Client object', () => {
   })
 
   describe('Http Client send request', () => {
-    nock('https://sandbox.interswitchng.com/api/v2')
+    nock('https://sandbox.interswitchng.com/api/v2', { allowUnmocked: true })
       .get('/quickteller/billers')
       .reply(200, {
         categoryname: 'Insurance',
