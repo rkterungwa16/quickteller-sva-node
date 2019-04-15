@@ -44,7 +44,7 @@ quickTellerSva
       entityCode: '011',
       paymentMethodCode: 'AC'
     },
-    transferCode: '1456111111221'
+    transferCode: '1456111111229'
   })
   .then((response) => {
     console.log('response', response)
