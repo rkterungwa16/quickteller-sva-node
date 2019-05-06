@@ -45,13 +45,17 @@ class HttpClient {
       }, (res) => {
         const status = res.statusCode
         if (status === 200 || status === 201) {
-          let body = ''
-          res.on('data', (data) => {
-            body += data
+          let responseBody = ''
+          res.on('data', (responseData) => {
+            responseBody += responseData
           })
           return res.on('end', () => {
-            const parsed = JSON.parse(body)
-            return resolve(parsed)
+            const parsedBody = JSON.parse(responseBody)
+            return resolve({
+              statusCode: res.statusCode,
+              headers: res.headers,
+              data: parsedBody
+            })
           })
         }
         let err = ''
@@ -63,6 +67,7 @@ class HttpClient {
           const quicktellerSvaError = new Error()
           quicktellerSvaError.statusCode = status
           quicktellerSvaError.message = parsed.errors[0].message
+          quicktellerSvaError.headers = res.headers
           return reject(quicktellerSvaError)
         })
       })
