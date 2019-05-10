@@ -21,7 +21,7 @@ quickTellerSva
     customerMobile: '2348056731576',
     customerEmail: 'iswtester2@yahoo.com',
     amount: '3600000',
-    requestReference: '14131194000021'
+    requestReference: '14131194000090'
   })
   .then((response) => {
     console.log('response', response)

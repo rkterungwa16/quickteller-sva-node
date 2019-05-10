@@ -14,9 +14,9 @@ const quickTellerSva = new QuickTellerSva(
 
 quickTellerSva
   .BillersResource
-  .getBillersByCategory(25)
+  .getBillersByCategory(4)
   .then((response) => {
-    console.log('response', response)
+    console.log('response', response.data)
   })
   .catch((err) => {
     console.log('error', err)

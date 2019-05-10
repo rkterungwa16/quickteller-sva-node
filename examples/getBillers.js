@@ -16,7 +16,7 @@ quickTellerSva
   .BillersResource
   .getBillers()
   .then((response) => {
-    console.log('response', response)
+    console.log('response', response.data.billers)
   })
   .catch((err) => {
     console.log('error', err)

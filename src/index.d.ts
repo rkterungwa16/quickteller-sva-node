@@ -1,5 +1,10 @@
 declare module 'quickteller-sva-node' {
 
+  export interface AirtimeInfo {
+    billerName: string;
+    customerPhoneNumber: string;
+    amount: number;
+  }
   export default class QuickTellerSva {
     BillersResource: BillersResource;
     BillerCategoriesResource: BillerCategoriesResource;
@@ -8,6 +13,7 @@ declare module 'quickteller-sva-node' {
     TransactionResource: TransactionResource;
     CustomerResource: CustomerResource;
     constructor (apiCredentials: ApiCredentials)
+    buyAirtime(airtimeInfo: AirtimeInfo)
   }
 
   export class Resource {

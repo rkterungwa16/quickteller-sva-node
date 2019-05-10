@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --recursive --require @babel/register tests/ --exit",
-    "example": "babel-node examples/getBanks.js",
+    "example": "babel-node examples/sendBillPaymentAdvice.js",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/app.js",
     "build": "npm run clean && babel src --out-dir dist",

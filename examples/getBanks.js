@@ -16,7 +16,7 @@ quickTellerSva
   .BanksResource
   .getBanks()
   .then((response) => {
-    console.log('response', response)
+    console.log('response', response.data.banks)
   })
   .catch((err) => {
     console.log('error', err)
