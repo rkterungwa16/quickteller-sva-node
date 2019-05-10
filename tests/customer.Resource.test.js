@@ -19,8 +19,7 @@ describe('Customer Resources', () => {
           ]
         })
       .reply(200, {
-        Customers:
-        [{
+        Customers: [{
           paymentCode: '10401',
           customerId: '0000000001',
           responseCode: '90000',
@@ -41,7 +40,7 @@ describe('Customer Resources', () => {
           ]
         })
         .then((response) => {
-          expect(response.Customers[0].paymentCode).to.equal('10401')
+          expect(response.data.Customers[0].paymentCode).to.equal('10401')
         })
     })
   })

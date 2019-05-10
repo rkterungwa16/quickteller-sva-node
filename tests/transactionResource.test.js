@@ -19,8 +19,7 @@ describe('Transaction Resources', () => {
           cardBin: 53701002040
         })
       .reply(200, {
-        Customers:
-        [{
+        Customers: [{
           paymentCode: '10401',
           customerId: '0000000001',
           responseCode: '90000',
@@ -41,7 +40,7 @@ describe('Transaction Resources', () => {
           cardBin: 53701002040
         })
         .then((response) => {
-          expect(response.Customers[0].paymentCode).to.equal('10401')
+          expect(response.data.Customers[0].paymentCode).to.equal('10401')
         })
     })
   })
@@ -58,8 +57,7 @@ describe('Transaction Resources', () => {
           amount: '60000'
         })
       .reply(200, {
-        Customers:
-        [{
+        Customers: [{
           paymentCode: '10401',
           customerId: '0000000001',
           responseCode: '90000',
@@ -80,7 +78,7 @@ describe('Transaction Resources', () => {
           amount: '60000'
         })
         .then((response) => {
-          expect(response.Customers[0].paymentCode).to.equal('10401')
+          expect(response.data.Customers[0].paymentCode).to.equal('10401')
         })
     })
   })

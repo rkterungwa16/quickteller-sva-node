@@ -33,7 +33,7 @@ describe('Http Client object', () => {
       }))
         .sendRequest()
         .then((response) => {
-          expect(response.categoryname).to.equal('Insurance')
+          expect(response.data.categoryname).to.equal('Insurance')
         })
     })
   })

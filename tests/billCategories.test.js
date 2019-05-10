@@ -24,7 +24,7 @@ describe('Bill Categories Resources', () => {
         .BillerCategoriesResource
         .getBillerCategories()
         .then((response) => {
-          expect(response[0].categorys.categoryid).to.equal('1')
+          expect(response.data[0].categorys.categoryid).to.equal('1')
         })
     })
   })

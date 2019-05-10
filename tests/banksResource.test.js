@@ -25,7 +25,7 @@ describe('Bank Resources', () => {
         .BanksResource
         .getBanks()
         .then((response) => {
-          expect(response[0].banks.id).to.equal('31')
+          expect(response.data[0].banks.id).to.equal('31')
         })
     })
   })
@@ -46,7 +46,7 @@ describe('Bank Resources', () => {
           accountId: '0014261063'
         })
         .then((response) => {
-          expect(response.accountName).to.equal('EVANS  ERHOBAGA-AGOFURE')
+          expect(response.data.accountName).to.equal('EVANS  ERHOBAGA-AGOFURE')
         })
     })
   })

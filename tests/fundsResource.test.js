@@ -89,7 +89,7 @@ describe('Customer Resources', () => {
           transferCode: '1456111111221'
         })
         .then((response) => {
-          expect(response.Customers[0].paymentCode).to.equal('10401')
+          expect(response.data.Customers[0].paymentCode).to.equal('10401')
         })
     })
   })

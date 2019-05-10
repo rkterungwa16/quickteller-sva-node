@@ -23,7 +23,7 @@ describe('Billers Resources', () => {
         .BillersResource
         .getBillers()
         .then((response) => {
-          expect(response.categoryname).to.equal('Insurance')
+          expect(response.data.categoryname).to.equal('Insurance')
         })
     })
   })
@@ -44,7 +44,7 @@ describe('Billers Resources', () => {
         .BillersResource
         .getBillersByCategory(900)
         .then((response) => {
-          expect(response.billername).to.equal('Gurantee Trust Assurance')
+          expect(response.data.billername).to.equal('Gurantee Trust Assurance')
         })
     })
   })
@@ -77,7 +77,7 @@ describe('Billers Resources', () => {
         .BillersResource
         .getBillerPaymentItems(104)
         .then((response) => {
-          expect(response.paymentitems[0].billerid).to.equal('104')
+          expect(response.data.paymentitems[0].billerid).to.equal('104')
         })
     })
   })
