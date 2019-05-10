@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+import '@babel/polyfill'
 
 import BillerResource from './BillerResource'
 import BillerCategoriesResource from './BillerCategoriesResource'
